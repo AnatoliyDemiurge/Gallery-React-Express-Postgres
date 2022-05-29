@@ -9,7 +9,7 @@ const User = sequelize.define('user',{
 })
 
 const Picture = sequelize.define('picture', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, authoIncrement: true},
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique:true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
     img: {type: DataTypes.STRING, allowNull: false},
@@ -24,18 +24,18 @@ const Genre = sequelize.define('genre', {
 })
 
 const Painter = sequelize.define('painter', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, authoIncrement: true},
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type:DataTypes.STRING, unique: true, allowNull: false},
     description: {type:DataTypes.STRING, allowNull: false }
 })
 
 const Buy = sequelize.define('buy', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, authoIncrement: true},
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type:DataTypes.STRING, allowNull: false}
 })
 
 const GenrePainter = sequelize.define('genre_painter', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, authoIncrement: true}
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
 })
 
 Genre.hasMany(Picture)

@@ -9,7 +9,8 @@ class GenreController{
     }
     
     async getAll(req, res) {
-
+        const genres = await Genre.findAll()
+        return res.json(genres)
     }
 
 }
