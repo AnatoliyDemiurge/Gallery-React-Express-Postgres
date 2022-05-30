@@ -18,7 +18,21 @@ class PictureController{
     }
     
     async getAll(req, res) {
-
+        const {painterId, genreId} = req.query
+        let pictures; 
+        if (!painterId && !genreId) {
+            pictures = await Picture.findAll() 
+        }
+        if (painterId && !genreId) {
+            pictures = await Picture.findAll({where:{painterId}}) 
+        }
+        if (!painterId && genreId) {
+            pictures = await Picture.findAll({where:{genreId}}) 
+        }
+        if (painterId && genreId) {
+            pictures = await Picture.findAll({where:{genreId, painterId}}) 
+        }
+        return res.json(pictures)
     }
 
     async getOne(req, res){

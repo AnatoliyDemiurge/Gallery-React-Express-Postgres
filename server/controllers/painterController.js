@@ -1,10 +1,15 @@
+const uuid = require('uuid')
+const path = require('path');
 const {Painter} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class PainterController{
     async create(req, res) {
-        const {name, description} = req.body
-        const painter = await Painter.create({name, description})
+        let {name, description} = req.body
+        const {img} = req.files
+        let fileName = uuid.v4() + ".jpg"
+        img.mv(path.resolve(__dirname, '..', 'static', fileName))
+        const painter = await Painter.create({name, description, img:fileName})
         return res.json(painter)
     }
     
