@@ -17,7 +17,27 @@ class PainterController{
         const painters = await Painter.findAll()
         return res.json(painters)
     }
+    
+    async getOne(req, res){
+        const {id} = req.params
+        const painter = await Painter.findOne(
+            {
+                where: {id}
+            }
+        )
+        return res.json(painter)
+    }   
 
+    async delete(req, res){
+        const {id} = req.params
+        const painter = await Painter.findOne(
+            {
+                where: {id}
+            }
+        )
+        await painter.destroy()
+        return res.json(painter)
+    }
 }
 
 module.exports = new PainterController()

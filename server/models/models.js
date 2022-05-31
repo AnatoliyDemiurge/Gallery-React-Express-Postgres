@@ -12,6 +12,7 @@ const Picture = sequelize.define('picture', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique:true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
+    count: {type: DataTypes.INTEGER, allowNull: false, defaultValue: "1"},
     img: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: false},
     year: {type: DataTypes.INTEGER, allowNull: false},

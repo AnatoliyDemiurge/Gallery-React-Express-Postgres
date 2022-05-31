@@ -47,6 +47,17 @@ class PictureController{
         )
         return res.json(picture)
     }   
+
+    async delete(req, res){
+        const {id} = req.params
+        const picture = await Picture.findOne(
+            {
+                where: {id}
+            }
+        )
+        await picture.destroy()
+        return res.json(picture)
+    }
 }
 
 module.exports = new PictureController()
