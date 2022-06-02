@@ -6,7 +6,6 @@ import PainterPage from "./pages/PainterPage";
 import Painters from "./pages/Painters"
 import PicturePage from "./pages/PicturePage";
 import Pictures from "./pages/Pictures";
-import HelpQuestionPage from "./pages/HelpQuestionPage";
 import HelpQuestions from "./pages/HelpQuestions";
 import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
@@ -15,8 +14,7 @@ import {
     ADMIN_ROUTE, BASKET_ROUTE,
     PICTURES_ROUTE, PICTURE_ROUTE,
     PAINTERS_ROUTE, PAINTER_ROUTE,
-    QUESTIONS_ROUTE, QUESTION_ROUTE,
-    ABOUTUS_ROUTE, CONTACTS_ROUTE, SERVICES_ROUTE,
+    QUESTIONS_ROUTE, ABOUTUS_ROUTE, CONTACTS_ROUTE, SERVICES_ROUTE,
     LOGIN_ROUTE, REGISTRATION_ROUTE,
     HOME_ROUTE,
 } from "./utils/consts";
@@ -68,10 +66,6 @@ export const publicRoutes = [
     {
         path: QUESTIONS_ROUTE,
         Component: HelpQuestions
-    },
-    {
-        path: QUESTION_ROUTE + '/:id',
-        Component: HelpQuestionPage
     },
     {
         path: ABOUTUS_ROUTE,

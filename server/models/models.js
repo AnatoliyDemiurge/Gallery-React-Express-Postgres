@@ -14,7 +14,7 @@ const Picture = sequelize.define('picture', {
     price: {type: DataTypes.INTEGER, allowNull: false},
     count: {type: DataTypes.INTEGER, allowNull: false, defaultValue: "1"},
     img: {type: DataTypes.STRING, allowNull: false},
-    description: {type: DataTypes.STRING, allowNull: false},
+    description: {type: DataTypes.STRING(500), allowNull: false},
     year: {type: DataTypes.INTEGER, allowNull: false},
     size: {type:DataTypes.STRING, allowNull: false},
 })
@@ -27,7 +27,7 @@ const Genre = sequelize.define('genre', {
 const Painter = sequelize.define('painter', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type:DataTypes.STRING, unique: true, allowNull: false},
-    description: {type:DataTypes.STRING, allowNull: false },
+    description: {type:DataTypes.STRING(500), allowNull: false, length:500 },
     img: {type: DataTypes.STRING, allowNull: false}
 })
 
