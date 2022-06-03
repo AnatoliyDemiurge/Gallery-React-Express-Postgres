@@ -56,6 +56,7 @@ export default class ContentStore{
                 size:'20x20'
             }
         ]
+        makeAutoObservable(this)
     }
     setGenres(genres) {
         this._genres = genres
