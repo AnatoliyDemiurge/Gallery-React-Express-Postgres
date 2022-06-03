@@ -1,10 +1,20 @@
 import React from 'react';
-
+import {Container, Row, Col} from 'react-bootstrap'
 const Pictures = () => {
     return (
-        <div>
-            Pictures
-        </div>
+        <Container>
+            <Row>
+                <Col md={2}>
+                    
+                </Col>
+                <Col md={8}>
+
+                </Col>
+                <Col md={2}>
+
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
