@@ -12,7 +12,9 @@ const Pictures = () => {
                     <GenreBar></GenreBar>
                 </Col>
                 <Col md={8}>
-                    <PictureList></PictureList>
+                    <PictureList>
+
+                    </PictureList>
                 </Col>
                 <Col md={2}>
                     <PainterBar></PainterBar>
