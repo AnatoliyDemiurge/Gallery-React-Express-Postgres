@@ -4,7 +4,9 @@ export default class ContentStore{
     constructor(){
         this._genres = [
             {id: 1, name:'Портрет'},
-            {id: 2, name:'Пейзжа'}
+            {id: 2, name:'Пейзаж'},
+            {id: 3, name:'Архитектурный'},
+            {id: 4, name:'Натюрморт'}
         ]
         this._painters = [
             {
@@ -56,6 +58,7 @@ export default class ContentStore{
                 size:'20x20'
             }
         ]
+        this._selectedGenre = {}
         makeAutoObservable(this)
     }
     setGenres(genres) {
@@ -70,6 +73,11 @@ export default class ContentStore{
         this._pictures = pictures
     }
     
+    setSelectedGenre(genre){
+        this._selectedGenre = genre
+    }
+    
+    
     get genres(){
         return this._genres
     }
@@ -79,5 +87,8 @@ export default class ContentStore{
     }
     get pictures(){
         return this._pictures
+    }
+    get SelectedGenre(){
+        return this._selectedGenre
     }
 }

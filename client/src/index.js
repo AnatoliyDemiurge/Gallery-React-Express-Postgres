@@ -9,7 +9,7 @@ export const Context = createContext(null)
 ReactDOM.render(
   <Context.Provider value={{
     user: new UserStore(),
-    contetnt: new ContentStore(),
+    content: new ContentStore(),
   }}>
   <App/>,
   </Context.Provider>,
