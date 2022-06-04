@@ -68,7 +68,6 @@ const NavBar = observer(() => {
                             
                         :
                             <img onClick={()=> user.setIsAuth(true)} alt="profile" className="header__pic" src={profilePic}/>
-                            
                         }
                     </div>
                 </div>
