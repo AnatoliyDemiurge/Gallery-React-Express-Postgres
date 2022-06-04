@@ -1,10 +1,19 @@
 import React from 'react';
+import {Col, Row, Container} from "react-bootstrap"
 
 const PicturePage = () => {
     return (
-        <div>
-           onePicture
-        </div>
+        <Container>
+            <Row>
+                <Col md={6}>
+
+                </Col>
+                
+                <Col md={6}>
+
+                </Col>
+            </Row>            
+        </Container>
     )
 }
 

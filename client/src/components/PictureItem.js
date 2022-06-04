@@ -1,10 +1,13 @@
 import React from 'react'
 import "../css/PictureItem.scss"
+import { useNavigate } from "react-router-dom";
+import { PICTURE_ROUTE } from '../utils/consts';
 
 const PictureItem = ({picture}) =>{
     console.log(picture)
+    const navigate = useNavigate();
     return (
-        <div className="picture-item">
+        <div className="picture-item" onClick={() => navigate(PICTURE_ROUTE + "/" + picture.id)}>
             <div className="picture-item__wrapper">
                 <div className="picture-item__card">
                     <div className="picture-item__img-container">
@@ -17,14 +20,7 @@ const PictureItem = ({picture}) =>{
                 </div>
             </div>
         </div>
-        // <div className="element">
-        //     <div className="element__wrapper">
-        //         <div className="element__card">g</div>
-        //     </div>
-        // </div>
-
     )
-    
 }
 
 export default PictureItem;
