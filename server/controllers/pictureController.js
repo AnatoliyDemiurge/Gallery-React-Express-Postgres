@@ -4,7 +4,7 @@ const {Picture} = require('../models/models')
 const ApiError = require('../error/ApiError');
 
 class PictureController{
-    async create(req, res){
+    async create(req, res, next){
         try {
             let {name, price, description, year, size, painterId, genreId} = req.body
             const {img} = req.files

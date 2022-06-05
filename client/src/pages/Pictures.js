@@ -1,11 +1,20 @@
-import React from 'react';
+import { observer } from 'mobx-react-lite';
+import React,{useContext, useEffect} from 'react';
 import {Container, Row, Col} from 'react-bootstrap'
+import { Context } from '../index';
 import GenreBar from '../components/GenreBar';
 import PainterBar from '../components/PainterBar'
 import PictureList from '../components/PictureList';
 import "../css/main.scss"
 import "../css/Pictures.scss"
-const Pictures = () => {
+import { fetchGenres, fetchPainters, fetchPictures } from '../http/pictureAPI';
+const Pictures = observer(() => {
+    const {content} = useContext(Context)
+    useEffect(()=>{
+        fetchGenres().then(data=> content.setGenres(data))
+        fetchPainters().then(data=> content.setPainters(data))
+        fetchPictures().then(data=> content.setPictures(data.rows))
+    },[])
     return (
         <Container className="pictures">
             <Row>
@@ -23,6 +32,6 @@ const Pictures = () => {
             </Row>
         </Container>
     )
-}
+})
 
 export default Pictures;
