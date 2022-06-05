@@ -30,6 +30,7 @@ const CreatePainter = ({show, onHide}) => {
                     <Form.Control
                         className="mt-3"
                         placeholder={"Вставьте фото художника"}
+                        type="file"
                     >
 
                     </Form.Control>
