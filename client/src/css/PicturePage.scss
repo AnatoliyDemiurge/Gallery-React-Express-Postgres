@@ -1,7 +1,7 @@
 .picture-page{
-    padding-top:50px;
+    padding-top:100px;
     &__container-img{
-        height:700px;
+        height:750px;
         width:100%;
         border-radius:15px;
     }
@@ -26,18 +26,29 @@
         -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
         box-shadow: 0px -5px 5px -5px #0D6EFD;
         font-family: Roboto;
-        font-weight:100
-    }
-    
-    &__button-modal{
-        padding:15px;
+        font-weight:300
     }
 
-    &__container-button-modal{
+    &__container-button-modal, &__container-button{
         display:flex;
         align-items: center;
         justify-content: center;
-        padding-top:50px;
+        padding-top:25px;
     }
-
+    &__button-modal, &__button{
+        border:none;
+        // border:5px solid black;
+        padding:20px 40px;
+        width:100%;
+        background:#0D6EFD;
+        color:white;
+        font-size:18px;
+        font-family: Roboto;
+        font-weight:300;
+        border-radius:15px;
+        &:hover{
+            transform:translateY(-10%);
+            transition:0.7s;
+        }
+    }
 }

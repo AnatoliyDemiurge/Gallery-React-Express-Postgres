@@ -33,7 +33,12 @@ const PicturePage = () => {
                     </div>
                    <div className="picture-page__container-button-modal">
                         <button className="picture-page__button-modal">
-                            
+                            Купить
+                        </button>   
+                   </div>
+                   <div className="picture-page__container-button">
+                        <button className="picture-page__button">
+                            Добавить в корзину
                         </button>   
                    </div>
                 </Col>
