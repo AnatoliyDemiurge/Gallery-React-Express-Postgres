@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Col, Row, Container} from "react-bootstrap"
 import "../css/PicturePage.scss"
+import { fetchOnePicture } from '../http/pictureAPI';
+import {useParams} from 'react-router-dom';
 const PicturePage = () => {
-    const picture = 
-        {
-            id:1,
-            name:'Роза',
-            price:10000,
-            description:'Красивое такое шо ну супер ну реально хорошо здорово круто отлично. Прилично. Эксентрично. Публичнр. Круто. Наруто. Фахито.нчил пед, затем мед. Следовательно прорруто. Фахито.нчил пед, затем мед. Следовруто.Фахито. Окончил пед, затем мед. Следовруто. Фахито. Окончил пед, затем мед. Следовательно',
-            img:'https://i.pinimg.com/736x/70/5b/bb/705bbb820c7332b04d619f7536645753.jpg',
-            year:'2010',
-            size:'20x20'
-        }
-    
+    const [picture, setPicture] = useState({})
+    const {id} = useParams()
+    useEffect(()=>{
+        fetchOnePicture(id).then(data => setPicture(data))
+    },[])
     return (
         <Container>
             <Row className="picture-page">
                 <Col md={6}>
                     <div className="picture-page__container-img">
-                        <img alt="car" className="picture-page__img" src={picture.img}/>
+                        <img alt="car" className="picture-page__img" src={process.env.REACT_APP_API_URL + picture.img}/>
                     </div>
                 </Col>
                 
