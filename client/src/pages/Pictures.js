@@ -4,9 +4,10 @@ import GenreBar from '../components/GenreBar';
 import PainterBar from '../components/PainterBar'
 import PictureList from '../components/PictureList';
 import "../css/main.scss"
+import "../css/Pictures.scss"
 const Pictures = () => {
     return (
-        <Container>
+        <Container className="pictures">
             <Row>
                 <Col md={2}>
                     <GenreBar></GenreBar>

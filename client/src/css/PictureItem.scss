@@ -17,13 +17,16 @@
     -webkit-box-shadow: 0px -5px 5px -5px #0D6EFD;
     -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
     box-shadow: 0px -5px 5px -5px #0D6EFD;
+    &:hover{
+        transform:translateY(-1%);
+        transition:0.7s;
+    }
     &__img-container{
         // background:#0D6EFD;
         width:100%;
         height:630px;
         // border:5px solid red;
         border-radius:15px;
-        
     }
     &__img{
         cursor: pointer;
@@ -32,7 +35,6 @@
         border-radius:15px;
         width:98%;
         height:98%;
-    
     }
     &__info{
         -webkit-box-shadow: 0px -5px 5px -5px #0D6EFD;

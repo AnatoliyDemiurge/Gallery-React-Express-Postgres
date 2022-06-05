@@ -1,4 +1,5 @@
 .header{
+    border-bottom:1px solid #99C2FE;
     &__list{
         display:flex;
         list-style:none;
@@ -33,6 +34,8 @@
         color:black;
         cursor:pointer;
         font-size:18px;
+        font-family: Roboto;
+        font-weight:300
     }
 
     &__pic{
