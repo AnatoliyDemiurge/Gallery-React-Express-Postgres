@@ -1,7 +1,7 @@
 import {$authHost, $host} from "./index";
 
-export const createGenre = async (genre) => {
-    const {data} = await $host.post('api/genre', genre)
+export const createPicture = async (picture) => {
+    const {data} = await $authHost.post('api/picture', picture)
     return data
 }
 

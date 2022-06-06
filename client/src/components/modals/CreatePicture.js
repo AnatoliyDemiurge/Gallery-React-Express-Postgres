@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import {Modal, Button, Form, Dropdown} from "react-bootstrap"
 import {Context} from "../../index"
-import { fetchGenres, fetchPainters} from '../../http/pictureAPI';
+import { fetchGenres, fetchPainters, createPicture} from '../../http/pictureAPI';
 import {observer} from "mobx-react-lite"
 const CreatePicture = observer(({show, onHide}) => {
     const {content} = useContext(Context)
@@ -19,6 +19,19 @@ const CreatePicture = observer(({show, onHide}) => {
 
     const selectFile = e => {
         setFile(e.target.files[0])
+    }
+
+    const addPicture = () =>{
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('price', `${price}`)
+        formData.append('description', description)
+        formData.append('year', `${year}`)
+        formData.append('size', size)
+        formData.append('img', file)
+        formData.append('painterId', content.selectedPainter.id)
+        formData.append('genreId', content.selectedGenre.id)
+        createPicture(formData).then(data => onHide())
     }
     return (
         <Modal
@@ -48,16 +61,22 @@ const CreatePicture = observer(({show, onHide}) => {
                     >
                     </Form.Control>
                     <Form.Control
+                        value={description}
+                        onChange={e=> setDescription(e.target.value)}
                         className="mt-3"
                         placeholder={"Введите описание картины"}
                     >
                     </Form.Control>
                     <Form.Control
+                        value={year}
+                        onChange={e=> setYear(e.target.value)}
                         className="mt-3"
                         placeholder={"Введите год написания картины"}
                     >
                     </Form.Control>
                     <Form.Control
+                        value={size}
+                        onChange={e=> setSize(e.target.value)}
                         className="mt-3"
                         placeholder={"Введите размер картины"}
                     >
@@ -103,7 +122,7 @@ const CreatePicture = observer(({show, onHide}) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
-                <Button variant="outline-success" onClick={onHide}>Добавить</Button>
+                <Button variant="outline-success" onClick={addPicture}>Добавить</Button>
             </Modal.Footer>
         </Modal>
     )
