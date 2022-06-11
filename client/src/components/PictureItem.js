@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { PICTURE_ROUTE } from '../utils/consts';
 
 const PictureItem = ({picture}) =>{
-    console.log(picture)
     const navigate = useNavigate();
     return (
         <div className="picture-item" onClick={() => navigate(PICTURE_ROUTE + "/" + picture.id)}>

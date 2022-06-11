@@ -60,10 +60,6 @@ export const publicRoutes = [
         Component: Pictures
     },
     {
-        path: PICTURE_ROUTE + '/:id',
-        Component: PicturePage
-    },
-    {
         path: QUESTIONS_ROUTE,
         Component: HelpQuestions
     },

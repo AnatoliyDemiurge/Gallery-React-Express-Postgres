@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from "../index"
 import "../css/NavBar.scss"
 import "../css/main.scss"
-import { PICTURES_ROUTE, PAINTERS_ROUTE, SERVICES_ROUTE, ABOUTUS_ROUTE, CONTACTS_ROUTE, QUESTIONS_ROUTE, LOGIN_ROUTE } from '../utils/consts';
+import { PICTURES_ROUTE, PAINTERS_ROUTE, SERVICES_ROUTE, ABOUTUS_ROUTE, CONTACTS_ROUTE, QUESTIONS_ROUTE, LOGIN_ROUTE, BASKET_ROUTE } from '../utils/consts';
 import {useNavigate} from "react-router-dom";
 import profilePic from "../images/profile-pic.jpg"
 import carPic from "../images/car-pic.jpg"
@@ -80,7 +80,7 @@ const NavBar = observer(() => {
                                         Выйти
                                     </span>
                                 </li>
-                                <div className="user__container-pic"><img alt="car" className="header__pic" src={carPic}/></div>
+                                <div className="user__container-pic"><img alt="car" onClick={() => navigate(BASKET_ROUTE)} className="header__pic" src={carPic}/></div>
                             </div>
                         :
                             <div className="user__container-pic">

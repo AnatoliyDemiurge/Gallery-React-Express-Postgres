@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {Col, Row, Container} from "react-bootstrap"
 import "../css/PicturePage.scss"
 import { fetchOnePicture } from '../http/pictureAPI';
 import {useParams} from 'react-router-dom';
+import {Context} from '../index';
 const PicturePage = () => {
+    const {content} = useContext(Context)
     const [picture, setPicture] = useState({})
     const {id} = useParams()
     useEffect(()=>{
@@ -25,7 +27,7 @@ const PicturePage = () => {
                         <p className="picture-page__description picture-page__item">Описание: {picture.description}</p>
                         <p className="picture-page__year picture-page__item">Год написания: {picture.year}</p>
                         <p className="picture-page__size picture-page__item">Размер(в см): {picture.size}</p>
-                        <p className="picture-page__painter picture-page__item">Художник: Вася Пупкин</p>
+                        <p className="picture-page__painter picture-page__item">Художник: Ангелина Вайнц</p>
                     </div>
                    <div className="picture-page__container-button-modal">
                         <button className="picture-page__button-modal">
@@ -33,7 +35,10 @@ const PicturePage = () => {
                         </button>   
                    </div>
                    <div className="picture-page__container-button">
-                        <button className="picture-page__button">
+                        <button 
+                            className="picture-page__button"
+                            onClick={() => content.setBasketPictures(id)}
+                        >
                             Добавить в корзину
                         </button>   
                    </div>

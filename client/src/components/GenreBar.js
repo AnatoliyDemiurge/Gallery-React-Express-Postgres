@@ -15,6 +15,7 @@ const GenreBar = observer( () => {
                         onClick={() => content.setSelectedGenre(genre)}
                         key={genre.id}
                     >
+                        
                         {genre.name}
                     </ListGroup.Item>
                 )}
