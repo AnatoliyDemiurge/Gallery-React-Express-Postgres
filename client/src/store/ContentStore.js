@@ -1,6 +1,9 @@
 import { makeAutoObservable } from "mobx";
-const basketArray = localStorage.idPicture.split(',')
-console.log(basketArray);
+let basketArray;
+if (localStorage.idPicture){
+    basketArray=localStorage.idPicture.split(',')
+}
+// console.log(basketArray);
 export default class ContentStore{
     constructor(){
         this._genres = []
@@ -14,6 +17,20 @@ export default class ContentStore{
     setBasketPictures(picture){
         this._basketPictures.push(picture)
         localStorage.setItem('idPicture',this._basketPictures)
+    }
+
+    deleteBasketPicture(picture){
+        let deleteString = ''
+        this._basketPictures.map((deletePicture, defaultValue) => {
+            if (picture == this._basketPictures[defaultValue]){
+                this._basketPictures.splice(defaultValue,1)
+                deleteString = this._basketPictures.toString()
+                localStorage.setItem("idPicture", deleteString)
+                basketArray=localStorage.idPicture.split(',')
+                this._basketPictures = basketArray
+                console.log(this._basketPictures);
+            }
+        })
     }
 
     setGenres(genres) {
