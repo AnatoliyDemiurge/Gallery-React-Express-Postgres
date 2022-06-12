@@ -1,5 +1,10 @@
 import { makeAutoObservable } from "mobx";
 let basketArray;
+let sumPrice;
+if (localStorage.sumPrices){
+    sumPrice = Number(localStorage.sumPrices)
+    console.log('test1')
+}
 if (localStorage.idPicture){
     basketArray=localStorage.idPicture.split(',')
 }
@@ -9,6 +14,7 @@ export default class ContentStore{
         this._genres = []
         this._painters = []
         this._pictures = []
+        this._prices = sumPrice || 0
         this._basketPictures = basketArray || []
         this._selectedGenre = {}
         this._selectedPainter = {}
@@ -17,6 +23,26 @@ export default class ContentStore{
     setBasketPictures(picture){
         this._basketPictures.push(picture)
         localStorage.setItem('idPicture',this._basketPictures)
+        
+    }
+
+    setSumPrice(){
+        console.log('test2')
+        let sum = 0
+        this._pictures.map((picture, defaultValue)=>{
+            console.log('test3')
+            this._basketPictures.map((basketPicture, defaultValue) =>{
+                if (picture.id == basketPicture){
+                    sum += picture.price
+                    console.log('test4')
+                    
+                }
+            })
+        })
+        this._prices = sum;
+        console.log('test5')
+        localStorage.setItem("sumPrices", this._prices)
+        console.log(localStorage.sumPrices)
     }
 
     deleteBasketPicture(picture){
@@ -28,7 +54,7 @@ export default class ContentStore{
                 localStorage.setItem("idPicture", deleteString)
                 basketArray=localStorage.idPicture.split(',')
                 this._basketPictures = basketArray
-                console.log(this._basketPictures);
+                console.log(this._basketPictures)
             }
         })
     }

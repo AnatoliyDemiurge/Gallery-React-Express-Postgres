@@ -19,6 +19,8 @@ const Basket = observer( () => {
         pictureBasketArray = localStorage.idPicture.split(',');
         // console.log(pictureBasketArray)
     }
+    console.log(content._prices)
+    content.setSumPrice()
     console.log(content._basketPictures)
     return (
         <Container className="basket">
@@ -69,7 +71,7 @@ const Basket = observer( () => {
                 <Col md={2} className="basket__buy">
                     <div className="basket__buy-wrapper">
                         <div className="basket__sum-price">
-                            Общая сумма : 55000 рублей.
+                            Общая сумма : {content._prices} рублей.
                         </div>
                         <div className="basket__buy-button-container">
                             <button className="basket__buy-button">Купить</button>

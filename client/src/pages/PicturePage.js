@@ -37,7 +37,10 @@ const PicturePage = () => {
                    <div className="picture-page__container-button">
                         <button 
                             className="picture-page__button"
-                            onClick={() => content.setBasketPictures(id)}
+                            onClick={() => {
+                                content.setBasketPictures(id)
+                            }}
+                            
                         >
                             Добавить в корзину
                         </button>   
