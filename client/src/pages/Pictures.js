@@ -8,13 +8,25 @@ import PictureList from '../components/PictureList';
 import "../css/main.scss"
 import "../css/Pictures.scss"
 import { fetchGenres, fetchPainters, fetchPictures } from '../http/pictureAPI';
+import Pages from "../components/Pages"
 const Pictures = observer(() => {
     const {content} = useContext(Context)
     useEffect(()=>{
         fetchGenres().then(data=> content.setGenres(data))
         fetchPainters().then(data=> content.setPainters(data))
-        fetchPictures().then(data=> content.setPictures(data.rows))
+        fetchPictures(null, null, 1, 6).then(data=> {
+            content.setPictures(data.rows)
+            content.setTotalCount(data.count)
+        })
     },[])
+
+    useEffect(() => {
+        fetchPictures(content.selectedGenre.id, content.selectedPainter.id, content.page, 6).then(data => {
+            content.setPictures(data.rows)
+            content.setTotalCount(data.count)
+        })
+    }, [content.page, content.selectedGenre, content.selectedPainter,])
+
     return (
         <Container className="pictures">
             <Row>
@@ -25,6 +37,7 @@ const Pictures = observer(() => {
                     <PictureList>
 
                     </PictureList>
+                    <Pages/>
                 </Col>
                 <Col md={2}>
                     <PainterBar></PainterBar>

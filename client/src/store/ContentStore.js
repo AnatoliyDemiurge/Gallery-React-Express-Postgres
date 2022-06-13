@@ -18,6 +18,9 @@ export default class ContentStore{
         this._basketPictures = basketArray || []
         this._selectedGenre = {}
         this._selectedPainter = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
     setBasketPictures(picture){
@@ -72,13 +75,22 @@ export default class ContentStore{
     }
     
     setSelectedGenre(genre){
+        this.setPage(1)
         this._selectedGenre = genre
     }
 
     setSelectedPainter(painter){
+        this.setPage(1)
         this._selectedPainter = painter
     }
     
+    setPage(page){
+        this._page = page
+    }
+
+    setTotalCount(count){
+        this._totalCount = count
+    }
     
     get genres(){
         return this._genres
@@ -100,5 +112,17 @@ export default class ContentStore{
 
     getBasketPictures(){
         return this._basketPictures
+    }
+
+    get totalCount(){
+        return this._totalCount
+    }
+
+    get page(){
+        return this._page
+    }
+
+    get limit(){
+        return this._limit
     }
 }
