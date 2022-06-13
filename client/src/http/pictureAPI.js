@@ -15,7 +15,7 @@ export const fetchPainters = async () => {
     return data
 }
 
-export const fetchPictures = async (genreId, painterId, page, limit=5) => {
+export const fetchPictures = async (genreId, painterId, page, limit=10) => {
     const {data} = await $host.get('api/picture', {params:{genreId, painterId, page, limit}})
     return data
 }

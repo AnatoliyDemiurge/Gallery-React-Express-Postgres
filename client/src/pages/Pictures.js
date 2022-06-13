@@ -14,7 +14,7 @@ const Pictures = observer(() => {
     useEffect(()=>{
         fetchGenres().then(data=> content.setGenres(data))
         fetchPainters().then(data=> content.setPainters(data))
-        fetchPictures(null, null, 1, 6).then(data=> {
+        fetchPictures(null, null, 1, 10).then(data=> {
             content.setPictures(data.rows)
             content.setTotalCount(data.count)
         })
