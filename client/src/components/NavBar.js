@@ -10,9 +10,6 @@ import {observer} from "mobx-react-lite";
 import "../css/burger.css"
 
 const NavBar = observer(() => {
-    const burgerItem = document.querySelector('.burger');
-    const menu = document.querySelector('.header__content');
-    const menuItemClose = document.querySelector('.header__close');
     const navigate = useNavigate()
     const {user} = useContext(Context)
 
@@ -80,10 +77,10 @@ const NavBar = observer(() => {
                                 }
                             }
                         >
-                            <span class="header__line">
+                            <span className="header__line">
                                
-                            </span
-                            ><span class="header__line">
+                            </span>
+                            <span className="header__line">
                                 
                             </span>
                         </div>

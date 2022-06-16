@@ -7,10 +7,11 @@
 
     &__container{
         padding-top:10px;
-        // padding:20px;
         display:flex;
         justify-content: space-between;
-       
+        @media screen and (max-width:500px){
+            
+        }
     }
 
     &__item{
@@ -28,6 +29,9 @@
                 color:white
             }
         }
+        @media screen and (max-width:500px){
+            padding:15px;
+        }
     }
 
     &__link{
@@ -35,13 +39,19 @@
         cursor:pointer;
         font-size:18px;
         font-family: Roboto;
-        font-weight:300
+        font-weight:300;
+        @media screen and (max-width:500px){
+            font-size:14px;
+        }
     }
 
     &__pic{
         width:50px;
         height:50px;
-        // margin-right:30px;
+        @media screen and (max-width:500px){
+            width:30px;
+            height:30px;
+        }
     }
     &__content{
         @media screen and (max-width:1000px) {
@@ -63,6 +73,9 @@
 .user{
     cursor: pointer;
     height:80px;
+    @media screen and (max-width:500px){
+        height:70px;
+    }
     &__container-pic{
         -webkit-box-shadow: 0px -5px 5px -5px #0D6EFD;
         -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
@@ -78,6 +91,7 @@
         display:flex;
         list-style:none;
     }
+
 }
 
 .header__close{
@@ -114,26 +128,19 @@
 
 .burger{
     -webkit-box-shadow: 0px -5px 5px -5px #0D6EFD;
-        -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
-        box-shadow: 0px -5px 5px -5px #0D6EFD;
-        padding:29px 25px;
-        cursor:pointer;
-        &:hover{
-            // background-color:#1E90FF;
-            background:#0D6EFD;
-            transition: 0.5s;
-            // border-radius:15px;
-            .header__link{
-                color:white
-            }
-        }
-    cursor: pointer;
+    -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
+    box-shadow: 0px -5px 5px -5px #0D6EFD;
+    padding:29px 25px;
+    cursor:pointer;
     position:absolute;
     top:1.2%;
     right:2%;
+    &:hover{
+        background:#0D6EFD;
+        transition: 0.5s;
+    }
     @media screen and (max-width:500px){
-        top:40px;
-        right:35px;
+        padding:18px 15px;
     }
     .burger__wrapper{
         height:20px;
@@ -152,6 +159,9 @@
             position:absolute;
             left:0;
             transition:.3s all linear;
+            @media screen and (max-width:500px){
+                height:2px;
+            }
         }
         .burger__line-1{
             top:0;
