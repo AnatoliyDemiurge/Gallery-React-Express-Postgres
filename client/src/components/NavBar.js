@@ -7,8 +7,12 @@ import {useNavigate} from "react-router-dom";
 import profilePic from "../images/profile-pic.jpg"
 import carPic from "../images/car-pic.jpg"
 import {observer} from "mobx-react-lite";
+import "../css/burger.css"
 
 const NavBar = observer(() => {
+    const burgerItem = document.querySelector('.burger');
+    const menu = document.querySelector('.header__content');
+    const menuItemClose = document.querySelector('.header__close');
     const navigate = useNavigate()
     const {user} = useContext(Context)
 
@@ -67,6 +71,22 @@ const NavBar = observer(() => {
                                 </span>
                             </li>
                         </ul>
+                        <div 
+                            className="header__close"
+                            onClick={() => 
+                                {
+                                    const menu = document.querySelector('.header__content');
+                                    menu.classList.remove('header__active');
+                                }
+                            }
+                        >
+                            <span class="header__line">
+                               
+                            </span
+                            ><span class="header__line">
+                                
+                            </span>
+                        </div>
                     </div>
                     <div className="header__user user">
                         {
@@ -92,6 +112,22 @@ const NavBar = observer(() => {
                             </div>
                         }
                     </div>
+                    <div 
+                        onClick={() => 
+                            {
+                                const menu = document.querySelector('.header__content');
+                                menu.classList.add('header__active');
+                            }
+                        }
+                        className="burger"
+                    >
+                        <div className="burger__wrapper">
+                            <span className="burger__line burger__line-1"></span>
+                            <span className="burger__line burger__line-2"></span>
+                            <span className="burger__line burger__line-3"></span>
+                            <span className="burger__line burger__line-4"></span>
+                        </div>
+                </div>
                 </div>
             </div>
         </div>

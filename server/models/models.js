@@ -3,9 +3,16 @@ const {DataTypes} = require('sequelize')
 
 const User = sequelize.define('user',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement:true},
-    email: {type: DataTypes.STRING, uniqie:true},
-    password: {type: DataTypes.STRING},
+    email: {type: DataTypes.STRING, uniqie:true, allowNull:false},
+    password: {type: DataTypes.STRING, allowNyll:false},
     role: {type: DataTypes.STRING, defaultValue: "USER"},
+})
+
+const Offer = sequelize.define('offer', {
+    id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    email:{type: DataTypes.STRING, unique:true, allowNull: false},
+    service:{type:DataTypes.STRING, allowNull: false},
+    text:{type:DataTypes.STRING}
 })
 
 const Picture = sequelize.define('picture', {
@@ -58,5 +65,6 @@ module.exports = {
     Picture,
     Genre,
     Painter,
-    GenrePainter
+    GenrePainter,
+    Offer
 }

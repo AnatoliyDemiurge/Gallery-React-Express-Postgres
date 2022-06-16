@@ -1,0 +1,4 @@
+.header__active{
+    transform:translateX(0%);
+    color:red;
+}

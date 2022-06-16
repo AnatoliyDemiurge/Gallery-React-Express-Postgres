@@ -43,6 +43,20 @@
         height:50px;
         // margin-right:30px;
     }
+    &__content{
+        @media screen and (max-width:1000px) {
+            display:block;
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:#FFFFFF;
+            z-index:222;
+            transform:translateX(100%);
+            transition:.3s all linear;
+        }
+    }
 
 }
 
@@ -66,6 +80,95 @@
     }
 }
 
+.header__close{
+    @media screen and (max-width:1000px) {
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:7%;
+    right:13%;
+    z-index:11;
+    cursor: pointer;
+    }
+    @media screen and (max-width:500px){
+        top:5%;
+        right:10%;
+    }
+    .header__line{
+        @media screen and (max-width:1000px) {
+        width:100%;
+        display:block;
+        height:2px;
+        background-color:#352A59;
+        position:absolute;
+        top:50%;
+        }
+        &:first-child{
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &:last-child{
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}
+
+.burger{
+    -webkit-box-shadow: 0px -5px 5px -5px #0D6EFD;
+        -moz-box-shadow: 0px -5px 5px -5px #0D6EFD;
+        box-shadow: 0px -5px 5px -5px #0D6EFD;
+        padding:29px 25px;
+        cursor:pointer;
+        &:hover{
+            // background-color:#1E90FF;
+            background:#0D6EFD;
+            transition: 0.5s;
+            // border-radius:15px;
+            .header__link{
+                color:white
+            }
+        }
+    cursor: pointer;
+    position:absolute;
+    top:1.2%;
+    right:2%;
+    @media screen and (max-width:500px){
+        top:40px;
+        right:35px;
+    }
+    .burger__wrapper{
+        height:20px;
+        width:33px;
+        position:relative;
+        display:none;
+        @media screen and (max-width:1000px) {
+            display:block;
+            // margin-left:15px;
+        }
+        .burger__line{
+            display:block;
+            width:100%;
+            height:3px;
+            background-color:#352A59;
+            position:absolute;
+            left:0;
+            transition:.3s all linear;
+        }
+        .burger__line-1{
+            top:0;
+        }
+        .burger__line-2{
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .burger__line-3{
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .burger__line-4{
+            bottom:0;
+        }
+    }
+}
 
 
 
